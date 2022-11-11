@@ -1,11 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kakaomap_webview/kakaomap_webview.dart';
-import 'package:geolocator/geolocator.dart';
 import 'package:parkwhere/repository/location_repository.dart';
-import 'package:parkwhere/ui/view/datail_page.dart';
-import 'package:parkwhere/viewmodel/parking_lot_model.dart';
-import 'package:provider/provider.dart';
 
 const String kakaoMapKey = 'e6ae5b347961bbe5188a6798c896a3fb';
 
@@ -18,11 +14,17 @@ class MapPage extends StatefulWidget {
 
 class _MapPageState extends State<MapPage> {
   final _locationRepository = LocationRepository();
-  double lat = 33.450701;
-  double lng = 126.570667;
+  double lat = 35.172909;
+  double lng = 126.911671;
+
 
   @override
   Widget build(BuildContext context) {
+
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
+    var padding = MediaQuery.of(context).padding;
+    double newheight = height - padding.top - padding.bottom;
 
     return Scaffold(
       body: SafeArea(
@@ -30,15 +32,14 @@ class _MapPageState extends State<MapPage> {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           KakaoMapView(
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height * 0.9,
+            width: width,
+            height: newheight,
             kakaoMapKey: kakaoMapKey,
             lat: lat,
             lng: lng,
             showMapTypeControl: true,
             showZoomControl: true,
             markerImageURL: 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_red.png',
-
           ),
         ],
       ),),
