@@ -39,9 +39,6 @@ class _DetailPageState extends State<DetailPage> {
     var name = '효죽공영주차장';
     var address = '광주광역시 북구 용봉로138번길 11(중흥동)';
     var tel = 01071769856;
-    var totalAbleCnt = 260;
-    var ableCnt = 32;
-
 
     return Scaffold(
       appBar: CupertinoNavigationBar(
@@ -57,20 +54,20 @@ class _DetailPageState extends State<DetailPage> {
             child:Container(
               child: Column(
                 children: [
-                  SizedBox(height: 7.0),
+                  SizedBox(height: 17.0),
                   Text('${name}',
                       textAlign: TextAlign.center,
                       style: GoogleFonts.lato(
                           fontSize: 35.0,
                           fontWeight: FontWeight.bold,
                           color: Colors.black)),
-                  SizedBox(height: 4.0,),
+                  SizedBox(height: 8.0,),
                   Text('${address}',
                     textAlign: TextAlign.center,
                     style: GoogleFonts.lato(
                         fontSize: 17.0,
                         color: Colors.black)),
-                  SizedBox(height: 13.0),
+                  SizedBox(height: 17.0),
                   KakaoMapView(
                     width: MediaQuery.of(context).size.width,
                     height: MediaQuery.of(context).size.height * 0.35,
@@ -139,7 +136,7 @@ class _DetailPageState extends State<DetailPage> {
                   //           fontSize: 16.0,
                   //           color: Colors.black),),),),
 
-                  SizedBox(height: 8.0),
+                  SizedBox(height: 10.0),
                   Container(
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -225,7 +222,7 @@ class _DetailPageState extends State<DetailPage> {
                         // ),
                         Expanded(flex: 1, child: SizedBox()),],
                   ),),
-                  SizedBox(height: 18.0),
+                  SizedBox(height: 20.0),
                   RemainStat(),
 
                   // ExpansionTile(title: Text('운영 요금',
