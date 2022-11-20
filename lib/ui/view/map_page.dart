@@ -17,7 +17,6 @@ class MapPage extends StatefulWidget {
 }
 
 class _MapPageState extends State<MapPage> {
-  final _locationRepository = LocationRepository();
   double lat = 35.176;
   double lng = 126.9075;
 
@@ -35,11 +34,46 @@ class _MapPageState extends State<MapPage> {
             kakaoMapKey: kakaoMapKey,
             lat: lat,
             lng: lng,
-            showMapTypeControl: true,
-            showZoomControl: true,
             markerImageURL: 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_red.png',
+            customScript: '''
+          var polyline = new kakao.maps.Polygon({
+            map: map,
+          path: [
+        new kakao.maps.LatLng(35.178809, 126.914272),
+        new kakao.maps.LatLng(35.178750, 126.914263),
+        new kakao.maps.LatLng(35.178617, 126.912170),
+        new kakao.maps.LatLng(35.178683, 126.912179) 
+    ],
+strokeWeight: 2,
+    strokeColor: '#FF00FF',
+    strokeOpacity: 0.8,
+    strokeStyle: 'dashed',
+    fillColor: '#00EEEE',
+    fillOpacity: 0.5
+});
 
-          ),
+var polyline2 = new kakao.maps.Polygon({
+            map: map,
+          path: [
+        new kakao.maps.LatLng(35.178809, 126.914272),
+        new kakao.maps.LatLng(35.178750, 126.914263),
+        new kakao.maps.LatLng(35.178617, 126.912170),
+        new kakao.maps.LatLng(35.1786, 126.9121) 
+    ],
+strokeWeight: 2,
+    strokeColor: '#FF00FF',
+    strokeOpacity: 0.8,
+    strokeStyle: 'dashed',
+    fillColor: '#00EEEE',
+    fillOpacity: 0.5
+});
+
+polyline.setMap(map);
+polyline2.setMap(map);
+''',
+            onTapMarker: (message) async{
+              ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("clicked")));
+            }),
         ],
       ),),
     );

@@ -2,10 +2,20 @@ import 'package:flutter/cupertino.dart';
 import 'package:parkwhere/ui/view/map_page.dart';
 import 'package:parkwhere/ui/view/list_page.dart';
 import 'package:flutter/material.dart';
+import 'package:parkwhere/service/notification.dart';
 
-class MainPage extends StatelessWidget {
+class MainPage extends StatefulWidget {
+  const MainPage({super.key});
+
+  @override
+  State<MainPage> createState() => _MainPageState();
+}
+
+class _MainPageState extends State<MainPage> {
+  var isSwitched = false;
   @override
   Widget build(BuildContext context) {
+    initNotification();
     return Scaffold(
       body: SafeArea(
         child: Column(
@@ -24,16 +34,12 @@ class MainPage extends StatelessWidget {
                 child: Text(
                   '지도'
                 )),
-            ElevatedButton(
-                onPressed: (){
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (BuildContext context) {
-                        return (ListPage());
-                      }));
-                },
-                child: Text(
-                    '리스트'
-                ))
+                Switch(value: isSwitched, onChanged: ((value) {
+                  setState(() {
+                    isSwitched = value;
+                    if(isSwitched) showNotification();
+                  });
+                }))
           ],
         )
       ),
