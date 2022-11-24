@@ -46,6 +46,7 @@ dependencies:
   shared_preferences: ^2.0.5
   crypto: ^3.0.1
   encrypt: ^5.0.1
+  services: ^0.0.1
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -108,3 +109,4 @@ flutter:
     - assets/images/smile.png
     - assets/images/neutral.png
     - assets/images/tears.png
+    - assets/images/logo.jpg
