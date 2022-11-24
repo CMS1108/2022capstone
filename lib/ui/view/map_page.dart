@@ -14,9 +14,8 @@ class MapPage extends StatefulWidget {
 
 class _MapPageState extends State<MapPage> {
   final _locationRepository = LocationRepository();
-  double lat = 35.172909;
-  double lng = 126.911671;
-
+  double lat = 35.176;
+  double lng = 126.9075;
 
   @override
   Widget build(BuildContext context) {
