@@ -52,6 +52,11 @@ dependencies:
   shared_preferences: ^2.0.5
   crypto: ^3.0.1
   encrypt: ^5.0.1
+  permission_handler: ^10.2.0
+  google_maps_flutter: ^2.2.1
+  latlong2: ^0.8.1
+  background_locator_2: ^2.0.5
+  flutter_background_service: ^2.4.5
 
 dev_dependencies:
   flutter_test:

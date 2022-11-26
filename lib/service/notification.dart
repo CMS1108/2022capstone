@@ -13,7 +13,7 @@ initNotification() async {
       android: androidSetting
   );
   await notifications.initialize(
-    initializationSettings
+    initializationSettings,
     //알림 누를때 함수실행하고 싶으면
     //onSelectNotification: 함수명추가
   );

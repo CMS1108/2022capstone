@@ -1,14 +1,17 @@
 import 'package:geolocator/geolocator.dart';
 
 class LocationRepository{
-  //final _geolocator = Geolocator();
+  double lat = 0;
+  double lng = 0;
 
-  Future<double> getCurrentLatitude() async{
+  Future<void> getCurrentPosition() async{
+    LocationPermission permission = await Geolocator.checkPermission();
+    if(permission == LocationPermission.denied){
+      permission = await Geolocator.requestPermission();
+    }
     Position position = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
-    return position.latitude;
-  }
-  Future<double> getCurrentLongitude() async{
-    Position position = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
-    return position.longitude;
+    lat = position.latitude;
+    lng = position.longitude;
+
   }
 }
