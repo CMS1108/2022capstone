@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:parkwhere/model/parking_lot.dart';
 
 class RemainStat extends StatelessWidget{
-  var totalAbleCnt = 260;
-  var ableCnt = 0;
-  var color = Colors.white;
+  final ParkingLot data;
+  const RemainStat(this.data);
+ 
   @override
   Widget build(BuildContext context) {
+    var color = Colors.white;
+    var ableCnt = data.ableCnt;
+    var totalAbleCnt = data.totalAbleCnt;
     if(ableCnt == 0){
       return Container(
         width: MediaQuery.of(context).size.width * 0.95,

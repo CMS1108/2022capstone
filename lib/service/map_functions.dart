@@ -1,12 +1,18 @@
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:get/get.dart';
+import 'package:parkwhere/ui/view/detail_page.dart';
+import 'package:flutter/material.dart';
 
-
-List<Marker> customScript(p){
+multiMarker(p){
   List<Marker> data = [];
   for(int i = 0; i < p.length; i++){
     data.add(Marker(
       markerId: MarkerId(i.toString()),
-      position: LatLng(p[i].lat, p[i].lng)
+      position: LatLng(p[i].lat, p[i].lng),
+      infoWindow: InfoWindow(title: "여유 공간:" + p[i].ableCnt.toString()),
+      onTap: () {
+        Get.to(DetailPage(p[i]));
+      }
       ));
   }
   return data;
@@ -131,3 +137,6 @@ List<Marker> customScript(p){
   // ''';
   // return code;
 }
+// Set<Polygon> polygons(){
+  
+// }

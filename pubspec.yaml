@@ -57,6 +57,8 @@ dependencies:
   latlong2: ^0.8.1
   background_locator_2: ^2.0.5
   flutter_background_service: ^2.4.5
+  get: ^4.6.5
+  flutter_tts: ^3.6.2
 
 dev_dependencies:
   flutter_test:
@@ -110,7 +112,10 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
-assets:
-  - assets/images/smile.png
-  - assets/images/neutral.png
-  - assets/images/tears.png
+  assets:
+    - assets/images/smile.png
+    - assets/images/neutral.png
+    - assets/images/tears.png
+    - assets/images/icon.png
+    - assets/images/marker.png
+    - assets/images/info.png
